@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "669931471503",
+    "project_id": "bookings3-44438",
+    "storage_bucket": "bookings3-44438.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669931471503:android:28f393fdc5262b816fe6fa",
+        "android_client_info": {
+          "package_name": "com.hci.spabooking.spa_booking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669931471503-hehsmaauaej44kr312h24ad6jcsp1oi3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hci.spabooking.spa_booking",
+            "certificate_hash": "479aa0f07b4606b0d47bc3f4f85536ddd4c6db28"
+          }
+        },
+        {
+          "client_id": "669931471503-u3v0gl42r7hn9pak6per0ai5pgiblbh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0t92Q5Pmjwpv_4IqZRVkE71YMHz3W71s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669931471503-u3v0gl42r7hn9pak6per0ai5pgiblbh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
