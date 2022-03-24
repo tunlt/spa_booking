@@ -22,7 +22,7 @@ var isLoading = true.obs;
       isLoading(true);
       final response = await http.get(
         Uri.parse(
-          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment${cusstomerId}?status=true'),
+          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment?id=${cusstomerId}&status=true'),
           headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token"
@@ -39,7 +39,7 @@ var isLoading = true.obs;
       }
       final response1 = await http.get(
         Uri.parse(
-          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment${cusstomerId}?status=false'),
+          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment?id=${cusstomerId}&status=false'),
           headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token"

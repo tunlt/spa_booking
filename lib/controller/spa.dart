@@ -49,7 +49,7 @@ class SpaController extends GetxController {
       print(id);
       isLoading(true);
       final response = await http
-          .get(Uri.parse('http://bookings3v1.somee.com/api/v1/spas/${id}'));
+          .get(Uri.parse('http://bookings3v1.somee.com/api/v1/spas/getbyid?id=${id}'));
       print(response.statusCode);
       if (response.statusCode == 200) {
         var jsonString = response.body;

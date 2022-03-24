@@ -52,7 +52,7 @@ class ServicesController extends GetxController {
       print(id);
       isLoading(true);
       final response = await http
-          .get(Uri.parse('http://bookings3v1.somee.com/api/v1/services/${id}'));
+          .get(Uri.parse('http://bookings3v1.somee.com/api/v1/services/getbyid?id=${id}'));
       print(response.statusCode);
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -128,7 +128,7 @@ class ServicesController extends GetxController {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             timeInSecForIosWeb: 1,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.blue,
             textColor: Colors.black,
             fontSize: 16.0);  
       }
