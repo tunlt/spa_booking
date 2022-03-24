@@ -15,17 +15,18 @@ var isLoading = true.obs;
     Future<List<BookingService>> getBookingServices() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final int? cusstomerId = prefs.getInt('cusid');
-       
+      final String? token = prefs.getString('token');
     try {
-      final Map<String, int?> queryparam = {
-        'id': cusstomerId,
-      };
+
       print(cusstomerId);
       isLoading(true);
       final response = await http.get(
         Uri.parse(
-          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment${cusstomerId}'),
-    
+          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment${cusstomerId}?status=true'),
+          headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token"
+        },
       ); 
       print(response.statusCode);
       if (response.statusCode == 200) {
@@ -34,9 +35,27 @@ var isLoading = true.obs;
         if (bookingService.data != null) {
           listBookingServices = bookingService.data as List<BookingService>;
         }
-        Get.to(AppointmentScreen(finished: true));
-        update();
+        print(listBookingServices);
       }
+      final response1 = await http.get(
+        Uri.parse(
+          'http://bookings3v1.somee.com/api/v1/booking_services/Getappointment${cusstomerId}?status=false'),
+          headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token"
+        },
+    
+      ); 
+      if (response1.statusCode == 200) {
+        var jsonString = response1.body;
+        var bookingService = bookingServicesFromJson(jsonString);
+        if (bookingService.data != null) {
+          listBookingServicesIsfalse = bookingService.data as List<BookingService>;
+          print(listBookingServicesIsfalse);
+        }
+      }
+      Get.to(AppointmentScreen(finished: true));
+      update();
     } catch (error) {
       print('loi');
     } finally {

@@ -39,65 +39,96 @@ class BlockServices extends StatelessWidget {
     // if(service.cateType=="Hot stone therapy")
     //   image=StrConstants.imgPath+"hotStoneTherapy.png";
     Size size = MediaQuery.of(context).size;
-    return GestureDetector(
+     return GestureDetector(
       onTap: () =>  _servicesController.getServicesDetail(services.id),
       child: Padding(
           padding: EdgeInsets.only(right: 15),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: size.width * 0.35,
-                height: size.width * 0.25,
-                child: Image.network('${services.urlImage}'),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(top: 1),
-                  child: Container(
-                    width: size.width * 0.35,
-                    child: Expanded(
-                      child: Text(
-                        "${services.name}",
-                        maxLines: 1,
-                        style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Row(
+              
+                 SingleChildScrollView(
+                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(
-                        "assets/icons/price.png",
-                        width: 18,
-                        color: Color.fromRGBO(33, 159, 13, 1),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(3, 10, 5, 5),
+                        child: Container(
+                          width: 150,
+                          height: 120,
+                          child: Image.network('${services.urlImage}'),
+                        ),
                       ),
-                      Text(
-                        "${NumberFormat.currency(locale: "vi-VN", symbol: "VND").format(services.price)}",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.timelapse,
-                        color: Colors.pink,
-                        size: 18.0,
-                      ),
-                      Text(
-                        "${services.duration} minute",
-                        style: TextStyle(fontSize: 12),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(3, 5, 20, 0),
+                        child: Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${services.name}",
+                                style: TextStyle(
+                                    color: ColorConstants.textColorBold,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.italic),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                               Padding(
+                              padding: EdgeInsets.only(top: 5),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/icons/price.png",
+                                    width: 18,
+                                    color: Color.fromRGBO(33, 159, 13, 1),
+                                  ),
+                                  Text(
+                                    "${NumberFormat.currency(locale: "vi-VN", symbol: "VND").format(services.price)}",
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                ],
+                              )),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.timelapse,
+                                          color: Colors.pink,
+                                          size: 12.0,
+                                        ),
+                                        Text(
+                                          "${services.duration} minute",
+                                          style: TextStyle(fontSize: 12),
+                                        )
+                                      ],
+                                  )),
+                              SizedBox(
+                                height: 3,
+                              ),
+                           
+                    SizedBox(width: 10,),
+                    
+                            ],
+                          ),
+                        ),
+                     
                       )
                     ],
-                  )),
+                                 ),
+                 ),
+              
+              
             ],
-          )),
+          ),
+         
+          ),
     );
+    
   }
 }

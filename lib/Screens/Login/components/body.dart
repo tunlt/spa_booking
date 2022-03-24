@@ -105,27 +105,33 @@ return user;
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.width * 0.06),
-            TextField(
-              controller: _emailController,
-   
-              decoration:  const InputDecoration(
-              prefixIcon: Icon(Icons.mail,
-                  color: Colors.black
-              ),
-              hintText: "Username or Email",
-              border: InputBorder.none),
-            ),
-             TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _emailController,
+                decoration:  const InputDecoration(
                 
-              icon: Icon(Icons.lock,
-                  color: Colors.black,
+                prefixIcon: Icon(Icons.mail,
+                    color: Colors.black
+                ),
+                hintText: "Username or Email",
+                border: InputBorder.none),
               ),
-              hintText: "Password",
-              border: InputBorder.none),
             ),
+             Padding(
+               padding: const EdgeInsets.only(left: 20),
+               child: TextField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  
+                icon: Icon(Icons.lock,
+                    color: Colors.black,
+                ),
+                hintText: "Password",
+                border: InputBorder.none),
+            ),
+             ),
             // RoundedInputField(
                 
             //     hintText: "Username and Gmail",

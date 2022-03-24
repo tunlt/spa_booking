@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:spa_booking/Screens/Appointment/components/history.dart';
 import 'package:spa_booking/Screens/Appointment/components/upcoming.dart';
 import 'package:spa_booking/controller/appointment.dart';
 import 'package:spa_booking/models/appointment.dart';
@@ -42,14 +43,14 @@ class _BodyAppointment extends State<BodyAppointment>{
                       child: GetBuilder<AppointmentController>(
                         builder: (controller) => (controller.isLoading.isTrue)
                             ? const Center(child: CircularProgressIndicator())
-                            : controller.listBookingServices.isEmpty
+                            : controller.listBookingServicesIsfalse.isEmpty
                                 ? const Center(child: Text('chưa có booking nào!'))
                                 : ListView.builder(
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (ctx, i) =>
-                                        UpcomingServiceBox(_appointmentController.listBookingServices[i]),
-                                    itemCount: controller.listBookingServices.length,
+                                        UpcomingServiceBox(_appointmentController.listBookingServicesIsfalse[i]),
+                                    itemCount: controller.listBookingServicesIsfalse.length,
                                   ),
                       ),
                     ),
@@ -65,8 +66,23 @@ class _BodyAppointment extends State<BodyAppointment>{
             ),
             SizedBox(height: 15,),
 
-            //   HistoryServiceBox(service: Service(service.name, service.rate, service.price,service.cateType,service.sale,service.spa),cancel: true,),
-            // HistoryServiceBox(service: Service(service.name, service.rate, service.price,service.cateType,service.sale,service.spa),cancel: false,),
+           Container(
+                      padding: EdgeInsets.all(10),
+                      height: MediaQuery.of(context).size.height * 0.35,
+                      child: GetBuilder<AppointmentController>(
+                        builder: (controller) => (controller.isLoading.isTrue)
+                            ? const Center(child: CircularProgressIndicator())
+                            : controller.listBookingServices.isEmpty
+                                ? const Center(child: Text('chưa có booking nào!'))
+                                : ListView.builder(
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (ctx, i) =>
+                                        HistoryServiceBox(_appointmentController.listBookingServices[i]),
+                                    itemCount: controller.listBookingServices.length,
+                                  ),
+                      ),
+                    ),
 
           ],
         ),

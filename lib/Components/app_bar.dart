@@ -31,11 +31,11 @@ class TopBar {
           ),
           IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return LoginScreen();
-                  },
-                ));
+                // Navigator.push(context, MaterialPageRoute(
+                //   builder: (context) {
+                //     return LoginScreen();
+                //   },
+                // ));
               },
               icon: Image.asset("assets/icons/bell.png", color: Color.fromRGBO(255, 177, 51, 1),width: size.width * 0.07,),
               iconSize: size.width * 0.08),

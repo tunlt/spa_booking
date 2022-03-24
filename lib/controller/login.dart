@@ -12,6 +12,7 @@ import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:spa_booking/Screens/Home/home_screen.dart';
+import 'package:spa_booking/Screens/Login/login_screen.dart';
 
 class LoginController extends GetxController {
    Future<void> LoginCustomer(TextEditingController usernameController,passwordController) async {
@@ -33,9 +34,14 @@ class LoginController extends GetxController {
       if(response.statusCode == 200){
         print("Login success");
         var jsonString = json.decode(response.body);    
+        Map<String, dynamic> payload = Jwt.parseJwt(response.body);
+        print(payload);
         int customerId = jsonString['data'][0]['customerId'] as int;
+        var token = jsonString['token'];
         prefs.setInt('cusid', customerId);
+        prefs.setString('token', token);
         print(customerId);
+        print(token);
         Get.to(MainScreen());
       }else{
         print("fail login");
@@ -53,5 +59,12 @@ class LoginController extends GetxController {
     }
   }
 
-  
+  Future<void> logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+
+    await GoogleSignIn().signOut();
+    await FirebaseAuth.instance.signOut();
+    Get.to(LoginScreen());
+  }
 }

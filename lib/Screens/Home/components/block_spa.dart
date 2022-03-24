@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:spa_booking/Screens/SpaDetail/spa_detail_screen.dart';
 import 'package:spa_booking/controller/spa.dart';
-import 'package:spa_booking/models/service.dart';
 import 'package:spa_booking/models/spa.dart';
 import 'package:spa_booking/utils/constants.dart';
 import 'package:get/get.dart';
@@ -37,78 +35,185 @@ class BlockSpa extends StatelessWidget {
     // if(service.cateType=="Hot stone therapy")
     //   image=StrConstants.imgPath+"hotStoneTherapy.png";
     Size size = MediaQuery.of(context).size;
+    // return GestureDetector(
+    //   onTap: () => _spaController.getSpaDetail(spa.id),
+    //   child: Padding(
+    //       padding: EdgeInsets.only(right: 15),
+    //       child: SingleChildScrollView(
+    //         child: Column(
+    //           crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: [
+    //             Container(
+    //               width: size.width * 0.30,
+    //               height: size.width * 0.25,
+    //               child: Image.network('${spa.urlImage}'),
+    //             ),
+    //             SizedBox(
+    //                     width: 8,
+    //                   ),
+    //             Padding(
+    //                 padding: EdgeInsets.only(top: 1),
+    //                 child: Container(
+    //                   width: size.width * 0.25,
+    //                   child: Expanded(
+    //                     child: Text(
+    //                       "${spa.spaName}",
+    //                       maxLines: 1,
+    //                       style: TextStyle(
+    //                           overflow: TextOverflow.ellipsis,
+    //                           fontSize: 12,
+    //                           fontWeight: FontWeight.bold),
+    //                     ),
+    //                   ),
+    //                 )),
+    //             Padding(
+    //                 padding: EdgeInsets.only(top: 5),
+    //                 child: Row(
+    //                   children: [
+    //                     Image.asset("assets/icons/location.png", width: 18),
+    //                     Text(
+    //                       "${spa.address}",
+    //                       style: TextStyle(fontSize: 12),
+    //                     ),
+    //                   ],
+    //                 )),
+    //             Padding(
+    //                 padding: EdgeInsets.only(top: 5),
+    //                 child: Row(
+    //                   children: [
+    //                     Icon(
+    //                       Icons.phone,
+    //                       color: Colors.pink,
+    //                       size: 18.0,
+    //                     ),
+    //                     Text(
+    //                       "${spa.phone}",
+    //                       style: TextStyle(fontSize: 12),
+    //                     )
+    //                   ],
+    //                 )),
+    //               Padding(
+    //                   padding: EdgeInsets.only(top: 5),
+    //                   child: Row(
+    //                     children: [
+    //                       Icon(
+    //                         Icons.email,
+    //                         color: Colors.pink,
+    //                         size: 18.0,
+    //                       ),
+    //                       Text(
+    //                         "${spa.email}",
+    //                         style: TextStyle(fontSize: 12),
+    //                       ),
+    //                     ],
+    //                   )),
+    //           ],
+    //         ),
+    //       )),
+    // );
     return GestureDetector(
       onTap: () => _spaController.getSpaDetail(spa.id),
       child: Padding(
           padding: EdgeInsets.only(right: 15),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: size.width * 0.35,
-                height: size.width * 0.25,
-                child: Image.network('${spa.urlImage}'),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(top: 1),
-                  child: Container(
-                    width: size.width * 0.35,
-                    child: Expanded(
-                      child: Text(
-                        "${spa.spaName}",
-                        //  ' service.name+" "+service.cateType',
-                        maxLines: 1,
-                        style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Row(
+              
+                 SingleChildScrollView(
+                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset("assets/icons/location.png", width: 18),
-                      Text(
-                        "${spa.address}",
-                        style: TextStyle(fontSize: 12),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(3, 10, 5, 5),
+                        child: Container(
+                          width: 150,
+                          height: 120,
+                          child: Image.network('${spa.urlImage}'),
+                        ),
                       ),
-                    ],
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        color: Colors.pink,
-                        size: 18.0,
-                      ),
-                      Text(
-                        "${spa.phone}",
-                        style: TextStyle(fontSize: 12),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(3, 5, 20, 0),
+                        child: Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${spa.spaName}",
+                                style: TextStyle(
+                                    color: ColorConstants.textColorBold,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.italic),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Padding(
+                                 padding: EdgeInsets.only(top: 5),
+                                 child: Row(
+                                 children: [
+                                 Image.asset("assets/icons/location.png", width: 18),
+                                 Text(
+                                  "${spa.address}",
+                                  style: TextStyle(fontSize: 12),
+                                 ),
+                                 ],
+                              )),
+                              SizedBox(
+                                height: 3,
+                              ),
+                               Padding(
+                                  padding: EdgeInsets.only(top: 5),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.phone,
+                                        color: Colors.pink,
+                                        size: 18.0,
+                                      ),
+                                      Text(
+                                        "${spa.phone}",
+                                        style: TextStyle(fontSize: 12),
+                                      )
+                                    ],
+                                  )),
+                                  Padding(
+                                      padding: EdgeInsets.only(top: 5),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.email,
+                                            color: Colors.pink,
+                                            size: 18.0,
+                                          ),
+                                          Text(
+                                            "${spa.email}",
+                                            style: TextStyle(fontSize: 12),
+                                          ),
+                                        ],
+                                      )),
+                              SizedBox(
+                                height: 3,
+                              ),
+                           
+                    SizedBox(width: 10,),
+                    
+                            ],
+                          ),
+                        ),
+                     
                       )
                     ],
-                  )),
-              if (2 > 0)
-                Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.email,
-                          color: Colors.pink,
-                          size: 18.0,
-                        ),
-                        Text(
-                          "${spa.email}",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ],
-                    )),
+                                 ),
+                 ),
+              
+              
             ],
-          )),
+          ),
+         
+          ),
     );
   }
 }

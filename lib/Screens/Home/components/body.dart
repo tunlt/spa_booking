@@ -141,9 +141,8 @@ class Body extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 18.0, vertical: 24.0),
-                      height: MediaQuery.of(context).size.height * 0.45,
+                      padding: EdgeInsets.only(bottom: 10, top: 20),
+                      height: MediaQuery.of(context).size.height * 0.40,
                       child: GetBuilder<SpaController>(
                         builder: (controller) => (controller.isLoading.isTrue)
                             ? const Center(child: CircularProgressIndicator())
@@ -159,8 +158,8 @@ class Body extends StatelessWidget {
                       ),
                     ),
                     //==================================================HIGH RATING
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 15, top: 25),
+                    Container(
+                      padding: EdgeInsets.only(top: 10, bottom: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -192,8 +191,7 @@ class Body extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 18.0, vertical: 24.0),
+                      padding: const EdgeInsets.all(8),
                       height: MediaQuery.of(context).size.height * 0.45,
                       child: GetBuilder<ServicesController>(
                         builder: (controller) => (controller.isLoading.isTrue)

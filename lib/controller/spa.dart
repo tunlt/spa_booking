@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:http/http.dart' as http;
+import 'package:spa_booking/Screens/Home/home_screen.dart';
 import 'package:spa_booking/Screens/SpaDetail/spa_detail_screen.dart';
 import 'dart:convert';
 
@@ -29,7 +30,9 @@ class SpaController extends GetxController {
         var spa = spaReponseFromJson(jsonString);
         if (spa.data != null) {
           listSpa = spa.data as List<Spa>;
-          update();
+           update();
+           print("helo");
+          Get.to(MainScreen());
         }
       }
     } catch (error) {

@@ -4,6 +4,8 @@ import 'package:spa_booking/Screens/Appointment/appointment_upcoming_screen.dart
 import 'package:spa_booking/Screens/Home/home_screen.dart';
 import 'package:spa_booking/Screens/Search/search_screen.dart';
 import 'package:spa_booking/controller/appointment.dart';
+import 'package:spa_booking/controller/login.dart';
+import 'package:spa_booking/controller/spa.dart';
 
 class BottomBarSpaApp extends StatelessWidget {
   String selected="";
@@ -11,6 +13,8 @@ class BottomBarSpaApp extends StatelessWidget {
   Color colorNormal= Color.fromRGBO(87, 79, 79, 1);
   BottomBarSpaApp({required this.selected});
    final AppointmentController appointmentController = Get.find<AppointmentController>();
+   final SpaController spaController = Get.find<SpaController>();
+   final LoginController loginController = Get.find<LoginController>();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -44,11 +48,7 @@ class BottomBarSpaApp extends StatelessWidget {
           )
         else
           GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return MainScreen();
-              },));
-            },
+            onTap: () => spaController.getSpa(),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,9 +141,9 @@ class BottomBarSpaApp extends StatelessWidget {
         else
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AppointmentScreen(finished: true);
-              },));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return AppointmentScreen(finished: true);
+              // },));
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -190,7 +190,7 @@ class BottomBarSpaApp extends StatelessWidget {
         //   )
         // ,
         //=============================================================
-        if(selected == "profile")
+        if(selected == "Logout")
           GestureDetector(
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -207,7 +207,7 @@ class BottomBarSpaApp extends StatelessWidget {
                   width: size.width * 0.09,
                 ),
                 Text(
-                  "Profile",
+                  "Logout",
                   style: TextStyle(
                       fontSize: 12, color: Colors.white),
                 )
@@ -216,11 +216,7 @@ class BottomBarSpaApp extends StatelessWidget {
           )
         else
           GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AppointmentScreen(finished: true);
-              },));
-            },
+            onTap: () => loginController.logout(),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -231,7 +227,7 @@ class BottomBarSpaApp extends StatelessWidget {
                   width: size.width * 0.09,
                 ),
                 Text(
-                  "Profile",
+                  "Logout",
                   style: TextStyle(
                       fontSize: 12, color: Colors.black45),
                 )

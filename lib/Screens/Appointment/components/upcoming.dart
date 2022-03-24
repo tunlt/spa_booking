@@ -25,7 +25,7 @@ class UpcomingServiceBox extends StatelessWidget{
                   children: [
                     Container(
                       width: size.width * 0.30,
-                      height: size.width * 0.20,
+                      height: size.width * 0.25,
                       child: Image.network('${bookingService.urlImage}'),
                     ),
                     SizedBox(
@@ -37,7 +37,7 @@ class UpcomingServiceBox extends StatelessWidget{
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Spa Name" + "${bookingService.spaName}",
+                            "${bookingService.spaName}",
                             style: TextStyle(
                                 color: ColorConstants.textColorBold,
                                 fontWeight: FontWeight.bold,
@@ -111,66 +111,7 @@ class UpcomingServiceBox extends StatelessWidget{
               
             ],
           ),
-          // child: Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     Container(
-          //       width: size.width * 0.35,
-          //       height: size.width * 0.25,
-          //       child: Image.network('${bookingService.urlImage}'),
-          //     ),
-          //     Padding(
-          //       padding:
-          //           EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
-          //       child: Row(
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           SizedBox(
-          //             width: 8,
-          //           ),
-          //           Container(
-          //             width: size.width * 0.55,
-          //             child: Column(
-          //               crossAxisAlignment: CrossAxisAlignment.start,
-          //               children: [
-          //                 Text(
-          //                   "Spa Name" + "${bookingService.spaName}",
-          //                   style: TextStyle(
-          //                       color: ColorConstants.textColorBold,
-          //                       fontWeight: FontWeight.bold,
-          //                       fontStyle: FontStyle.italic),
-          //                   overflow: TextOverflow.ellipsis,
-          //                 ),
-          //                 SizedBox(
-          //                   height: 3,
-          //                 ),
-          //                 Text(
-          //                   // "Address: " + service.spa.address,
-          //                   "time: "+ "${bookingService.timeStart}" + " - "+"${bookingService.timeEnd}",
-          //                   overflow: TextOverflow.ellipsis,
-          //                 ),
-          //                 SizedBox(
-          //                   height: 3,
-          //                 ),
-          //                 Text(
-          //                   // "Date: " + service.spa.address,
-          //                    "Price: "+ "${bookingService.price}",
-          //                   overflow: TextOverflow.ellipsis,
-          //                 ),
-          //                 SizedBox(
-          //                   height: 3,
-          //                 ),
-                         
-          //               ],
-          //             ),
-          //           )
-          //         ],
-          //       ),
-                
-          //     ),
-              
-          //   ],
-          // )
+         
           ),
     );
     
